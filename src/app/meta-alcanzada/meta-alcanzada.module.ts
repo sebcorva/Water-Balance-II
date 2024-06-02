@@ -4,19 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageRoutingModule } from './login-routing.module';
+import { MetaAlcanzadaPageRoutingModule } from './meta-alcanzada-routing.module';
 
-import { LoginPage } from './login.page';
-import {MatInputModule} from '@angular/material/input';
+import { MetaAlcanzadaPage } from './meta-alcanzada.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule,
-    MatInputModule
+    MetaAlcanzadaPageRoutingModule
   ],
-  declarations: [LoginPage]
+  declarations: [MetaAlcanzadaPage]
 })
-export class LoginPageModule {}
+export class MetaAlcanzadaPageModule {}

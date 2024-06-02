@@ -1,0 +1,40 @@
+#imagen {
+    width: 40%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.container {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30%;
+  }
+
+.centrado {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+ion-item {
+    --border-width: 0px;
+    --inner-border-width: 0px;
+    --border-color: transparent;
+  }
+
+  .limited-rotation-image {
+    animation: limitedRotateAnimation 2s infinite linear;
+  }
+  
+  @keyframes limitedRotateAnimation {
+    0%, 100% {
+      transform: rotate(-25deg);
+    }
+  
+    50% {
+      transform: rotate(25deg);
+    }
+  }

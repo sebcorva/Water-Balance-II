@@ -4,19 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageRoutingModule } from './login-routing.module';
+import { ConsejosPageRoutingModule } from './consejos-routing.module';
 
-import { LoginPage } from './login.page';
-import {MatInputModule} from '@angular/material/input';
+import { ConsejosPage } from './consejos.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule,
-    MatInputModule
+    ConsejosPageRoutingModule
   ],
-  declarations: [LoginPage]
+  declarations: [ConsejosPage]
 })
-export class LoginPageModule {}
+export class ConsejosPageModule {}

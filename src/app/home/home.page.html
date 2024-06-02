@@ -1,20 +1,67 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="onClick()">
+        <ion-icon slot="start" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>WaterBalance</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-card>
+      <ion-card-title>
+        <h1>Bienvenido!</h1>
+        <p>Usuario: {{ usuarioRecibido }}</p>
+        <h3>Informacion Adicional</h3>
+      </ion-card-title>
+        <!--Entradas-->
+        <ion-card-content>
+          <ion-item>
+            <ion-label>Nombre</ion-label>&nbsp;
+            <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label>Apellido</ion-label>&nbsp;
+            <ion-input type="text" [(ngModel)]="apellido"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label>Nivel Educación</ion-label>
+            <ion-select [(ngModel)]="selectedOption">
+              <ion-select-option value="option1">Universitario</ion-select-option>
+              <ion-select-option value="option2">Magister</ion-select-option>
+              <ion-select-option value="option3">Doctorao</ion-select-option>
+            </ion-select>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label>Fecha Nacimiento</ion-label>
+              <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker color="primary"></mat-datepicker>
+          </ion-item>
+          
+          
+        </ion-card-content>
+        <!--Botones limpiar y mostrar-->
+        <ion-card-content >
+          <ion-button (click)="limpiar()" id="boton">Limpiar</ion-button>
+          <ion-button (click)="mostrar()" id="boton">Mostrar</ion-button>
+        </ion-card-content>
+        
+    </ion-card>
   </div>
 </ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>App desarrollada por: Sebastián Corvalan</ion-title>
+  </ion-toolbar>
+</ion-footer>
