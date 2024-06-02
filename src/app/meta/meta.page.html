@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slots="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-title>WaterBalance</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Meta</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+
+<ion-content class="container">
+  <div>
+    <ion-card>
+      <ion-card-title>
+        <h1>Meta diaria:</h1>
+      </ion-card-title>
+      <ion-card-content>
+        <ion-item>
+          <p class="centrado">Dia: {{ today | date: 'EEEE' }}</p>
+        </ion-item>
+        <ion-item>
+          <img class="centrado" src="../../assets/icon/10.png">
+        </ion-item>
+        <ion-card-content>
+          <p>{{ AguaRecibida }} ml / 2000 ml</p>
+        </ion-card-content>
+        <ion-item>
+          <ion-button class="centrado" (click)="ingresar()">Agregar consumo</ion-button>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>App desarrollada por: Sebastián Corvalan</ion-title>
+  </ion-toolbar>
+</ion-footer>

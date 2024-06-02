@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slots="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-title>WaterBalance</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Historial</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+
+<ion-content id="container">
+  <div>
+    <ion-card>
+      <ion-card-title>
+        <h1>Historial de consumo:</h1>
+      </ion-card-title>
+      <ion-card-content>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr *ngFor="let x of Historial">
+                <th>{{ x.numero }}</th>
+                <th>{{ x.consumo }} ml</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+
+  
+
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>App desarrollada por: Sebastián Corvalan</ion-title>
+  </ion-toolbar>
+</ion-footer>
