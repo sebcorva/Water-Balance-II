@@ -15,7 +15,6 @@ export class MetaPage implements OnInit {
 
   ngOnInit() {
   }
-  
   ionViewWillEnter(){
     this.totalAgua = localStorage.getItem('totalAgua');
   }

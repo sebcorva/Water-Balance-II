@@ -27,7 +27,6 @@ export class ConsejosPage implements OnInit {
     this.dataService.crearDatos(nuevoPost).subscribe(post => {
       console.log('post creado', post);
     });
-
   }
 
 }

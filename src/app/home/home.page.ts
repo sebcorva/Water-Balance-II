@@ -8,7 +8,7 @@ import { AlertController, MenuController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage { 
-  
+
   user_name: any='';
   password: any='';
   nombre: any='';

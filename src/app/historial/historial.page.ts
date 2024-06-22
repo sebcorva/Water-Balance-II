@@ -19,8 +19,4 @@ export class HistorialPage implements OnInit {
   cargarConsumos(): void {
     this.consumos = this.consumoService.obtenerconsumo();
   }
-  
-
- 
-
 }

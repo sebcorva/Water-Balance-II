@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-menu-principal',
   templateUrl: './menu-principal.component.html',
@@ -16,5 +17,4 @@ export class MenuPrincipalComponent  implements OnInit {
     localStorage.clear();
     this.router.navigate(['/login']);
   }
-
 }

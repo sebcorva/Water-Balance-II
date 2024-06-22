@@ -35,5 +35,4 @@ export class MetaAlcanzadaPage implements OnInit {
       console.error('error al tomar la foto', error);
     }
   }
-  
 }

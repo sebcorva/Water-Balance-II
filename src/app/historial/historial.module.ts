@@ -8,7 +8,6 @@ import { HistorialPageRoutingModule } from './historial-routing.module';
 
 import { HistorialPage } from './historial.page';
 
-
 @NgModule({
   imports: [
     CommonModule,
