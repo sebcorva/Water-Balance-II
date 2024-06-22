@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { ConsumoService } from '../services/consumo.service';
 
 @Component({
   selector: 'app-ingreso',
@@ -10,48 +9,42 @@ import { ConsumoService } from '../services/consumo.service';
 })
 export class IngresoPage implements OnInit {
 
-  mlAgua: any=0;
-  totalAgua: number=0; 
-  nuevoValor: any=0;
-  tope: number=0;
-
-  consumos: any[] = [];
+  mlAgua: number=0;
+  totalAgua: number=0;
   
-  constructor(private alertController:AlertController, private router:Router, private consumoService: ConsumoService) { 
+  constructor(private alertController:AlertController, private router:Router, private activateroute:ActivatedRoute) { 
+    this.activateroute.queryParams.subscribe(params =>{
+      if(this.router.getCurrentNavigation()?.extras?.state){
+
+        this.totalAgua = this.router.getCurrentNavigation()?.extras?.state?.['totalAgua'];
+        
+        console.log();
+      }
+    })
   }
     
   ngOnInit() {
-    const agua: any = localStorage.getItem('totalAgua');
-    if (agua !== null){
-      this.totalAgua = +agua;
-    }
   }
 
-  ingresar(): void{
+
+  ingresar(){
     if(this.mlAgua > 0){
-      this.agregarConsumo();
-      this.nuevoValor = this.totalAgua + this.mlAgua;
-      localStorage.setItem('totalAgua',this.nuevoValor.toString());
-      this.tope = this.nuevoValor;
-      if (this.tope < 2000){
-        this.router.navigate(['meta'])
+      this.totalAgua += this.mlAgua
+      let navigationExtras: NavigationExtras = {
+        state:{
+          AguaEnviada: this.totalAgua
+        }
+      }
+      if (this.mlAgua < 2000 && this.totalAgua < 2000){
+        this.router.navigate(['meta'], navigationExtras)
       }
       else{
-        this.router.navigate(['meta-alcanzada'])
+        this.router.navigate(['meta-alcanzada'], navigationExtras)
       }
     }
     else{
       this.presentAlert('Ingrese una cantidad valida')
     }
-  }
-
-  agregarConsumo(){
-    this.consumoService.agregaConsumo(this.mlAgua); 
-    this.router.navigate(['meta'])
-      .then(() =>{
-        //this.presentAlert('agregado el consumo');
-      })
-    
   }
 
   today: Date = new Date();

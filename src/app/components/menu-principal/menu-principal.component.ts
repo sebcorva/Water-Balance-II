@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-principal',
@@ -8,13 +7,8 @@ import { Router } from '@angular/router';
 })
 export class MenuPrincipalComponent  implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {}
-
-  logOut(){
-    localStorage.clear();
-    this.router.navigate(['/login']);
-  }
 
 }

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { HistorialPageRoutingModule } from './historial-routing.module';
 
 import { HistorialPage } from './historial.page';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { HistorialPage } from './historial.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    HistorialPageRoutingModule
+    HistorialPageRoutingModule,
+    MatTableModule
   ],
   declarations: [HistorialPage]
 })

@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [AppComponent, MenuPrincipalComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, SQLite, provideAnimationsAsync()],
+
   exports: [MenuPrincipalComponent],
   bootstrap: [AppComponent],
 })

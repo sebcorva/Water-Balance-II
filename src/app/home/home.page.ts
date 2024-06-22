@@ -9,56 +9,47 @@ import { AlertController, MenuController } from '@ionic/angular';
 })
 export class HomePage { 
   
-  user_name: any='';
-  password: any='';
-  nombre: any='';
-  apellido: any='';
-  edad: any='';
-  peso: any='';
-  totalAgua: any='';
+  usuarioRecibido: string='';
+  passwordRecibido: string='';
+  nombre: string='';
+  apellido: string='';
+  selectedOption: string='';
+  selectedDate: string='';
   
-  constructor(private router:Router, private alertController: AlertController, private menuCtrl: MenuController) {
-  }
+  constructor(private router:Router, private activateroute:ActivatedRoute, private alertController: AlertController, private menuCtrl: MenuController) {
+    this.activateroute.queryParams.subscribe(params =>{
+      if(this.router.getCurrentNavigation()?.extras?.state){
 
-  ngOnInit() {
-  }
+        this.usuarioRecibido = this.router.getCurrentNavigation()?.extras?.state?.['usuarioEnviado'];
+        this.passwordRecibido = this.router.getCurrentNavigation()?.extras?.state?.['passworEnviado'];
 
-  ionViewWillEnter(){
-    this.user_name = localStorage.getItem('user_name');
-    this.password = localStorage.getItem('password');
-    this.nombre = localStorage.getItem('nombre');
-    this.apellido = localStorage.getItem('apellido');
-    this.edad = localStorage.getItem('edad');
-    this.peso = localStorage.getItem('peso');
+        console.log();
+      }
+    })
   }
 
   async presentAlert(message: string){
     const alert = await this.alertController.create({
       header: 'Usuario',
       message: message,
-      buttons: ['ok']
+      buttons: ['yes']
     });
     await alert.present();
   }
 
-  guardar() {
+  mostrar() {
     if (this.nombre.trim() === '' || this.apellido.trim() === ''){
       this.presentAlert('Error: Nombre y apellido vacios');
     } else {
-      localStorage.setItem('nombre',this.nombre);
-      localStorage.setItem('apellido', this.apellido);
-      localStorage.setItem('edad',this.edad);
-      localStorage.setItem('peso', this.peso);
-      localStorage.setItem('totalAgua',this.totalAgua);
-      this.presentAlert(this.nombre+' tus datos han sido guardados');
+      this.presentAlert('Su nombre es: ' +this.nombre+' '+this.apellido);
     }
   }
 
   limpiar() {
     this.nombre = '';
     this.apellido = '';
-    this.edad = '';
-    this.peso = '';
+    this.selectedOption = '';
+    this.selectedDate = '';
   }
 
   onClick()

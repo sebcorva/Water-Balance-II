@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
-import { Camera, CameraResultType } from '@capacitor/camera';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-meta-alcanzada',
@@ -11,29 +8,20 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class MetaAlcanzadaPage implements OnInit {
 
-  public photo: SafeResourceUrl | undefined;
-  totalAgua: any=''; 
+  AguaRecibida: number=0;
 
-  constructor(private router: Router, private sanitizer: DomSanitizer) {}
+  constructor(private router: Router, private activateroute:ActivatedRoute) {
+    this.activateroute.queryParams.subscribe(params =>{
+      if(this.router.getCurrentNavigation()?.extras?.state){
+
+        this.AguaRecibida = this.router.getCurrentNavigation()?.extras?.state?.['AguaEnviada'];
+        
+        console.log();
+      }
+    })
+   }
 
   ngOnInit() {
   }
 
-  ionViewWillEnter(){
-    this.totalAgua = localStorage.getItem('totalAgua');
-  }
-
-  async tomarFoto(){
-    try {
-      const capturedPhoto = await Camera.getPhoto({
-        quality: 100,
-        allowEditing: true,
-        resultType: CameraResultType.Uri
-      });
-      this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(capturedPhoto.webPath!);
-    } catch (error) {
-      console.error('error al tomar la foto', error);
-    }
-  }
-  
 }

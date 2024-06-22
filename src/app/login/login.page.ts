@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { DataBaseService } from '../services/data-base.service';
 
 @Component({
   selector: 'app-login',
@@ -10,25 +9,26 @@ import { DataBaseService } from '../services/data-base.service';
 })
 export class LoginPage implements OnInit {
 
-  user_name: string="";
+  usuario: string="";
   password: string="";
 
-  constructor(private db: DataBaseService, private alertController:AlertController, private router:Router) { }
+  constructor(private alertController:AlertController, private router:Router) { }
 
   ngOnInit() {
-    this.db.crearBD();
   }
 
-  async login(){
-    const isValidUser = await this.db.validarUsuario(this.user_name, this.password);
-    if (isValidUser) {
-      localStorage.setItem('user_name',this.user_name);
-      localStorage.setItem('password',this.password);
-      localStorage.setItem('authToken', 'token');
-      this.router.navigate(['/home']);
+  login(){
+    if (this.usuario.trim() == 'seba' && this.password.trim() == '1234'){
+      let navigationExtras: NavigationExtras = {
+        state:{
+          usuarioEnviado: this.usuario,
+          passwordEnviado: this.password
+        }
+      }
+      this.router.navigate(['/home'], navigationExtras);
     }
     else{
-      this.presentAlert('Usuario incorrecto')
+      this.presentAlert('Incorrecto')
     }
   }
 

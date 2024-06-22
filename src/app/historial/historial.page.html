@@ -22,20 +22,16 @@
         <h1>Historial de consumo:</h1>
       </ion-card-title>
       <ion-card-content>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <table>
-                <tbody>
-                  <tr *ngFor="let x of consumos; let i = index">
-                    <td>{{ i + 1 }}</td>
-                    <td>{{ x }} ml</td>
-                  </tr>
-                </tbody>
-              </table>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr *ngFor="let x of Historial">
+                <th>{{ x.numero }}</th>
+                <th>{{ x.consumo }} ml</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
       </ion-card-content>
     </ion-card>
   </div>
