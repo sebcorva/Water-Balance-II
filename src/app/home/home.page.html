@@ -1,20 +1,62 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="onClick()">
+        <ion-icon slot="start" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>WaterBalance</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-card>
+      <ion-card-title>
+        <h1>¡Bienvenido!</h1>
+        <img src="../../assets/user.jpg" width="30%" alt="">
+        <p>Usuario: {{ user_name }}</p>
+      </ion-card-title>
+        <!--Entradas-->
+      <ion-card-content>
+      <h3>Informacion Adicional</h3>
+        <ion-item>
+          <ion-label>Nombre</ion-label>&nbsp;
+          <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>Apellido</ion-label>&nbsp;
+          <ion-input type="text" [(ngModel)]="apellido"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Edad</ion-label>&nbsp;
+          <ion-input type="number" [(ngModel)]="edad"></ion-input>
+          <p>años</p>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>Peso</ion-label>&nbsp;
+          <ion-input type="number" [(ngModel)]="peso"></ion-input>
+          <p>kg.</p>
+        </ion-item>
+
+      </ion-card-content>
+      <!--Botones limpiar y mostrar-->
+      <ion-card-content >
+        <ion-button (click)="limpiar()" id="boton">Limpiar</ion-button>
+        <ion-button (click)="guardar()" id="boton">Guardar</ion-button>
+      </ion-card-content>  
+    </ion-card>
   </div>
 </ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>App desarrollada por: Sebastián Corvalan</ion-title>
+  </ion-toolbar>
+</ion-footer>

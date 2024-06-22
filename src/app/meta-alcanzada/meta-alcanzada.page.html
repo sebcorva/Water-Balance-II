@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slots="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-title>WaterBalance</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">metaAlcanzada</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+
+<div class="container">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>¡ FELICIDADES !</ion-card-title>
+      <ion-card-subtitle>Haz alcanzado tu meta diaria de consumo de agua !</ion-card-subtitle>
+      <ion-card-content>
+        <ion-item>
+          <ng-container *ngIf="photo; else imagenAnterior">
+            <img class="centrado" [src]="photo" *ngIf="photo" width="50%">
+          </ng-container>
+          <ng-template #imagenAnterior>
+            <img alt="" id="imagen" class="limited-rotation-image centrado" src="../../assets/icon/feliicidades.png" />
+          </ng-template>
+        </ion-item>
+        <ion-item>
+          <p class="centrado">Tu consumo de agua es de: {{ totalAgua }} ml</p>
+        </ion-item>
+      </ion-card-content>
+    </ion-card-header>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <p>¡ Toma una fotografia para celebrar este momento !</p>
+      <ion-button (click)="tomarFoto()">Tomar foto</ion-button>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>App desarrollada por: Sebastián Corvalan</ion-title>
+  </ion-toolbar>
+</ion-footer>
