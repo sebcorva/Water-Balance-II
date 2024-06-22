@@ -1,0 +1,24 @@
+.container {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 15%;
+  }
+
+.container1 {
+    text-align: center;
+  }
+
+.centrado {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+ion-item {
+    --border-width: 0px;
+    --inner-border-width: 0px;
+    --border-color: transparent;
+}
