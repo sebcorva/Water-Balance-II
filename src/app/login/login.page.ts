@@ -32,6 +32,10 @@ export class LoginPage implements OnInit {
     }
   }
 
+  registro(){
+    this.router.navigate(['registro'])
+  }
+
   async presentAlert(message: string){
     const alert = await this.alertController.create({
       header: 'Error',

@@ -1,0 +1,38 @@
+<ion-toolbar>
+  <ion-buttons slots="start">
+    <ion-back-button defaultHref="/login"></ion-back-button>
+    <ion-title>Atras</ion-title>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content [fullscreen]="true" id="container">
+  
+  <div>
+    <ion-card>
+      <ion-card-title>
+        <h1>WaterBalance</h1>
+        <h3>Mantente hidratado</h3>
+      </ion-card-title>
+
+      <ion-card-content>
+        <h3>Crea tu cuenta</h3>
+      </ion-card-content>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input type="text" maxlength="8" minlength="3" [(ngModel)]="user_name" placeholder="Ingrese un usuario"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" maxlength="4" [(ngModel)]="password" placeholder="Ingrese una clave de 4 digitos"></ion-input>
+        </ion-item>
+
+      </ion-card-content>
+
+      <ion-button expand="full" (click)="registro()" >Crear cuenta</ion-button>
+
+    </ion-card>
+  </div>
+
+</ion-content>
